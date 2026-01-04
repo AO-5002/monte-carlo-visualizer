@@ -16,7 +16,7 @@ interface IWidget {
   description: string;
   additional?: string;
   statistical_value: number;
-  icon: string;
+  icon?: string;
 }
 
 function IconBox({ icon }: { icon: React.ReactNode }) {
@@ -25,7 +25,12 @@ function IconBox({ icon }: { icon: React.ReactNode }) {
   );
 }
 
-function Widget(data: IWidget) {
+function Widget() {
+  const data: IWidget = {
+    statistical_value: 10,
+    statistical_type: EStats.CI,
+    description: "",
+  };
   return (
     <div className="w-full h-full bg-linear-to-bl from-primary from-10% to-[#2C2C2C] to-100% rounded-xl flex flex-col justify-between p-6">
       <div className="w-full flex flex-row items-center justify-between">
